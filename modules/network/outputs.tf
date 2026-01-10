@@ -1,3 +1,3 @@
 output "public_subnet_id" {
-  value = ""
+  value = aws_subnet.public.id 
 }
