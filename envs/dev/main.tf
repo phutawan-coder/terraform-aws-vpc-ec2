@@ -10,8 +10,15 @@ module "network" {
 }
 
 module "app" {
-  source = "../../modules/app/" 
+  source    = "../../modules/app/" 
 
   subnet_id = module.network.public_subnet_id
   sg_id     = module.network.public_sg_id
+}
+
+module "db" {
+  source    = "../../modules/db/"
+
+  subnet_id = module.network.private_subnet_id
+  sg_id     = module.network.private_sg_id
 }
